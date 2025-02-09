@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Loan Status</title>
+  <style>
+    .approved { color: green; }
+    .pending { color: orange; }
+    .rejected { color: red; }
+  </style>
+</head>
+<body>
+<h2>Loan Application Status</h2>
+<p>Applicant Name: <span th:text="${loanApplication.applicantName}"></span></p>
+<p>Email: <span th:text="${loanApplication.email}"></span></p>
+<p>Loan Amount: <span th:text="${loanApplication.loanAmount}"></span></p>
+<p>Credit Score: <span th:text="${loanApplication.creditScore}"></span></p>
+<p>Status: <span th:text="${loanApplication.status}"
+                 th:classappend="${loanApplication.status == 'Approved'} ? 'approved' :
+                                    (${loanApplication.status == 'Pending'} ? 'pending' : 'rejected')"></span></p>
+</body>
+</html>
